@@ -36,7 +36,7 @@ export class RegionPage extends React.Component {
                 </div>
                 <div style={{
                     position: 'absolute',
-                    bottom: '10px',
+                    top: '5px',
                     left: 0,
                     zIndex: 1500,
                     backgroundColor: '#FFF',
