@@ -1,18 +1,76 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-
-const HomePage = () => {
-  return (
-    <div>
-      <h1>Hello PWA</h1>
-
-      <h2>Get Started</h2>
-      <ol>
-        <li>Review the <Link to="/fuel-savings">demo app</Link></li>
-        <li>Remove the demo and start coding: npm run remove-demo</li>
-      </ol>
-    </div>
-  );
+import PropTypes from 'prop-types';
+import Typography from '@material-ui/core/Typography';
+import { withStyles } from '@material-ui/core/styles';
+import { connect } from 'react-redux';
+import { getData } from '../actions/crops';
+import { Link as RouterLink } from 'react-router-dom'
+import Link from '@material-ui/core/Link';
+const styles = {
+  root: {
+    width: '100%',
+    maxWidth: 500,
+  },
 };
 
-export default HomePage;
+class HomePage extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props.dispatch(getData())
+  }
+  render() {
+    const { classes } = this.props;
+    if (!this.props.user) {
+      return (<Typography component="h3" variant="h1" gutterBottom>
+        Loading
+  </Typography>)
+    }
+
+    const { user } = this.props
+    return (
+      <div className={classes.root}>
+        <h2>
+          {user.Name}
+        </h2>
+        <label>{user.Title}</label>
+        <h3>Regions</h3>
+        <ul>
+          {
+            user.Regions.map((r, idx) => {
+              return (
+                <li key={idx}>
+                  <Link component={RouterLink} to={`/regions/{${r.id}}`}>
+                    {r.RegionName}
+                  </Link>
+                </li>
+              )
+            })
+          }
+        </ul>
+      </div>
+    );
+  }
+}
+
+HomePage.propTypes = {
+  classes: PropTypes.object.isRequired,
+  user: PropTypes.object,
+  dispatch: PropTypes.func.isRequired,
+};
+
+function mapStateToProps(state) {
+  return {
+    user: state.crops.user
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withStyles(styles)(HomePage));
