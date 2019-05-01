@@ -1,6 +1,6 @@
 /*eslint no-console: 0 */
 console.log('Worker here')
-var CACHE_NAME = 'my-site-cache-v1.0.1';
+var CACHE_NAME = 'my-site-cache-v1.0.2';
 var urlsToCache = [
     'index.html',
     'favicon.ico',
@@ -11,7 +11,19 @@ var urlsToCache = [
     'main.2a36bdd3309b08162d40.js.map',
     // '/sw.js',
 ];
-
+self.addEventListener('activate', function (event) {
+    event.waitUntil(
+        caches.keys().then(function (cacheNames) {
+            return Promise.all(
+                cacheNames.filter(function (cacheName) {
+                    return cacheName !== CACHE_NAME
+                }).map(function (cacheName) {
+                    return caches.delete(cacheName);
+                })
+            );
+        })
+    );
+});
 self.addEventListener('install', function (event) {
     // Perform install steps
     event.waitUntil(
