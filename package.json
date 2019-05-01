@@ -6,6 +6,7 @@
     "node": ">=8",
     "npm": ">=3"
   },
+  "homepage": "https://srekan.github.io/satsure-crops-pwa",
   "scripts": {
     "preinstall": "node tools/nodeVersionCheck.js",
     "remove-demo": "babel-node tools/removeDemo.js",
