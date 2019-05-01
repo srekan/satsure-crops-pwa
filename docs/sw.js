@@ -1,6 +1,6 @@
 /*eslint no-console: 0 */
 console.log('Worker here')
-var CACHE_NAME = 'satsure-site-cache-v1.0.9';
+var CACHE_NAME = 'satsure-site-cache-v1.0.10';
 var urlsToCache = [
     /*
     '/index.html',
