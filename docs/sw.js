@@ -1,14 +1,14 @@
 /*eslint no-console: 0 */
 console.log('Worker here')
-var CACHE_NAME = 'my-site-cache-v1.0.2';
+var CACHE_NAME = 'my-site-cache-v1.0.5';
 var urlsToCache = [
-    'index.html',
-    'favicon.ico',
-    'main.86690e6f1a5e7aa4e9ac.css',
-    'index.html',
-    'main.86690e6f1a5e7aa4e9ac.css.map',
-    'main.2a36bdd3309b08162d40.js',
-    'main.2a36bdd3309b08162d40.js.map',
+    '/index.html',
+    '/favicon.ico',
+    '/main.86690e6f1a5e7aa4e9ac.css',
+    '/index.html',
+    '/main.86690e6f1a5e7aa4e9ac.css.map',
+    '/main.2a36bdd3309b08162d40.js',
+    '/main.2a36bdd3309b08162d40.js.map',
     // '/sw.js',
 ];
 self.addEventListener('activate', function (event) {
@@ -19,6 +19,8 @@ self.addEventListener('activate', function (event) {
                     return cacheName !== CACHE_NAME
                 }).map(function (cacheName) {
                     return caches.delete(cacheName);
+                }).cache(e => {
+                    console.log('Error in activate ', e)
                 })
             );
         })
@@ -31,6 +33,8 @@ self.addEventListener('install', function (event) {
             .then(function (cache) {
                 console.log('Opened cache');
                 return cache.addAll(urlsToCache);
+            }).catch(e => {
+                console.log('Error in install ', e)
             })
     );
 });
