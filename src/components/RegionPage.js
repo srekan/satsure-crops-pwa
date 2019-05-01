@@ -5,7 +5,7 @@ import RegionMap from './RegionMap'
 import { getData } from '../actions/crops'
 import classNames from 'classnames'
 const fullViewPort = () => ({
-    height: `${window.screen.height}px`,
+    height: `${window.visualViewport.height}px`,
     width: `${window.screen.width - 30}px`
 })
 
