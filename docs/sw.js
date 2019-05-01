@@ -1,6 +1,6 @@
 /*eslint no-console: 0 */
 console.log('Worker here')
-var CACHE_NAME = 'my-site-cache-v1.0.0';
+var CACHE_NAME = 'my-site-cache-v1.0.1';
 var urlsToCache = [
     'index.html',
     'favicon.ico',
