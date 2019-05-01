@@ -4,7 +4,10 @@ import PropTypes from 'prop-types';
 import RegionMap from './RegionMap'
 import { getData } from '../actions/crops'
 import classNames from 'classnames'
-const fullViewPort = () => ({ height: `${window.screen.height}px`, width: `${window.screen.width}px` })
+const fullViewPort = () => ({
+    height: `${window.screen.height}px`,
+    width: `${window.screen.width - 30}px`
+})
 
 export class RegionPage extends React.Component {
     static propTypes = {
@@ -33,9 +36,9 @@ export class RegionPage extends React.Component {
                 </div>
                 <div style={{
                     position: 'absolute',
-                    bottom: 0,
+                    bottom: '10px',
                     left: 0,
-                    zIndex: 1000,
+                    zIndex: 1500,
                     backgroundColor: '#FFF',
                     opacity: '0.7',
                     width: '100%',
