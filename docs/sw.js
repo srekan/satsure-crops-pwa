@@ -1,14 +1,14 @@
 /*eslint no-console: 0 */
 console.log('Worker here')
-var CACHE_NAME = 'my-site-cache-v1';
+var CACHE_NAME = 'my-site-cache-v1.0.0';
 var urlsToCache = [
     '/',
-    '/favicon.ico',
-    '/main.86690e6f1a5e7aa4e9ac.css',
-    '/index.html',
-    '/main.86690e6f1a5e7aa4e9ac.css.map',
-    '/main.2a36bdd3309b08162d40.js',
-    '/main.2a36bdd3309b08162d40.js.map',
+    'favicon.ico',
+    'main.86690e6f1a5e7aa4e9ac.css',
+    'index.html',
+    'main.86690e6f1a5e7aa4e9ac.css.map',
+    'main.2a36bdd3309b08162d40.js',
+    'main.2a36bdd3309b08162d40.js.map',
     // '/sw.js',
 ];
 
