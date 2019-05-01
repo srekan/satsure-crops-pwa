@@ -1,7 +1,8 @@
 /*eslint no-console: 0 */
 console.log('Worker here')
-var CACHE_NAME = 'my-site-cache-v1.0.5';
+var CACHE_NAME = 'my-site-cache-v1.0.6';
 var urlsToCache = [
+    /*
     '/index.html',
     '/favicon.ico',
     '/main.86690e6f1a5e7aa4e9ac.css',
@@ -10,6 +11,7 @@ var urlsToCache = [
     '/main.2a36bdd3309b08162d40.js',
     '/main.2a36bdd3309b08162d40.js.map',
     // '/sw.js',
+    */
 ];
 self.addEventListener('activate', function (event) {
     event.waitUntil(
@@ -39,6 +41,7 @@ self.addEventListener('install', function (event) {
     );
 });
 self.addEventListener('fetch', function (event) {
+    console.log(event.request)
     event.respondWith(
         caches.match(event.request)
             .then(function (response) {
