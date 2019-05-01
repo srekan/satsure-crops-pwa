@@ -2,7 +2,7 @@
 console.log('Worker here')
 var CACHE_NAME = 'my-site-cache-v1.0.0';
 var urlsToCache = [
-    '/',
+    'index.html',
     'favicon.ico',
     'main.86690e6f1a5e7aa4e9ac.css',
     'index.html',
