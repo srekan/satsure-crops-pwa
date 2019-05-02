@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Map, TileLayer, Polygon, ImageOverlay } from 'react-leaflet'
 import { PropTypes } from 'prop-types'
 const fullViewPort = {
-    height: `${window.visualViewport.height}px`,
-    width: `${window.screen.width - 30}px`
+    height: `${window.innerHeight}px`,
+    width: `${window.innerWidth - 30}px`
 }
 export default class ViewportExample extends Component {
     static propTypes = {

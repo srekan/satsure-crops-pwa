@@ -5,8 +5,8 @@ import RegionMap from './RegionMap'
 import { getData } from '../actions/crops'
 import classNames from 'classnames'
 const fullViewPort = () => ({
-    height: `${window.visualViewport.height}px`,
-    width: `${window.screen.width - 30}px`
+    height: `${window.innerHeight}px`,
+    width: `${window.innerWidth - 30}px`
 })
 
 export class RegionPage extends React.Component {
